@@ -15,7 +15,7 @@
       <!-- <p>My Social Live  Below</p> -->
       <a href="#" id="auth-links"><i class="fa fa-dribbble"></i></a>
       <a href="#" id="auth-links"><i class="fa fa-twitter"></i></a>
-      <a href="#" id="auth-links"><i class="fa fa-linkedin"></i></a>
+      <a href="https://www.linkedin.com/feed/" id="auth-links"><i class="fa fa-linkedin"></i></a>
       <a href="#" id="auth-links"><i class="fa fa-facebook"></i></a>
 
         <form action="" method="post" enctype="multipart/form-data">
@@ -32,12 +32,9 @@
            </div>  {% endcomment %}
         </form>
 
-       <p><button id="btn-profile"><a href="" id="auth-links">
-        {% comment %} {% url 'profile-update' %} {% endcomment %}
-        <span></span>
-        <span></span> 
-        <span></span>
-        <span></span>
+       <p><button id="btn-profile">
+        <a href="{% url 'profile-update' %} " id="auth-links">
+        
         Update Profile
     </a></button></p> 
     </div>

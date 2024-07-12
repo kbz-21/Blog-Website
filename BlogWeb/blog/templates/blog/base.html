@@ -35,8 +35,9 @@
               {% comment %} <h6 id = "kal" style="color: white;">Hello <br> {{request.user}}</h6> {% endcomment %}
             </div>
             <div>
-            <a href="" 
-            %}" id="auth-links"> 
+            <a href="{% url 'blog-new' %}"  id="auth-links"> 
+              
+              
                 <span></span>
                 <span></span>
                 <span></span>
@@ -50,7 +51,7 @@
                 <span></span>
                 Profile
             </a>
-            <a href=" {% url 'logout' %}" id="auth-links">
+            <a href="{% url 'logout' %}" id="auth-links">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -80,7 +81,9 @@
       </nav>
     </header>
     <main role="main" class="container">
-{% comment %} ........message alerting for user registers........ {% endcomment %}
+
+<!--........message alerting for user registers........ -->
+
       <div class="row">
           <div class="col-md-8">
               {%  if messages %}
@@ -91,6 +94,8 @@
                 {% endfor %}
               {% endif %}
           </div>
+
+          <!-- dividing the home page in two parts 8 | 4  -->
         <div class="col-md-8">
            {% block content %}{% endblock %}
         </div>
@@ -116,22 +121,22 @@
                 <div class="list-group list-group-flush border-bottom scrollarea">
                   <a href="#" class="list-group-item list-group-item-action  lh-tight" aria-current="true">
                     <div class="d-flex w-100 align-items-center justify-content-between">
-                      <strong class="mb-1">Seriously, Stop Trying to Teach Toddlers How to Code...By kaleab
+                      <strong class="mb-1">Blog website features aaaaaaaa...By kaleab
                     </strong>
-                      <small>Wed</small>
+                      <small>Wed</small>p
                     </div>
-                    <div class="col-10 mb-1 small">AS A BABY nerd, I was obsessed with Hackers. The 1995 cult movie... </div>
+                    <div class="col-10 mb-1 small"> I was a good foot ball player before i join Astu... </div>
                   </a>
                   <a href="#" class="list-group-item list-group-item-action py-3 lh-tight">
                     <div class="d-flex w-100 align-items-center justify-content-between">
                       <strong class="mb-1">Its not a bug - It's a feature... by kaleab</strong>
                       <small class="text-muted">Tues</small>
                     </div>
-                    <div class="col-10 mb-1 small">When it comes to coding, everything works like a miracle, let me use that word...hahaha</div>
+                    <div class="col-10 mb-1 small">When it comes to coding, everything works like a miracle, let me use that word..</div>
                   </a>
-                  <a href="#" class="list-group-item list-group-item-action py-3 lh-tight">
+                  <a href="#" class="list-group-item list-group-item-action py-3 lh-tight"> 
                     <div class="d-flex w-100 align-items-center justify-content-between">
-                      <strong class="mb-1">I wanted to be a great programmer but...by kaleab/strong>
+                      <strong class="mb-1">I wanted to be a great programmer but...by kaleab</strong>
                       <small class="text-muted">Mon</small>
                     </div>
                     <div class="col-10 mb-1 small">in my family trait, nobody knows anything about computers and i wanted to be the greatest computer scientist ever and...</div>

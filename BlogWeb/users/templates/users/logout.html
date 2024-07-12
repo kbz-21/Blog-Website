@@ -5,8 +5,8 @@
 
 {% block content %}
 
-<div class="content-section">
-    <form action="post">
+ <div class="content-section">
+    <form action="" method="post">
         {% csrf_token %}
         <fieldset class="form-group">
             <legend class="border-bottom mb-4">Hello?</legend>
@@ -16,5 +16,5 @@
             <button class="btn btn-outline-info" type="submit"><a href="{% url 'login'%}">loggin Again</a></button>
         </div>
     </form>
-</div>
- {% endblock content %}
+ </div>
+{% endblock  %}
