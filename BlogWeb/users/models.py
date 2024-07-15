@@ -19,4 +19,5 @@ def save(self,*args, **kwargs):
         output_size = (300,300)
         img.thumbnail(output_size)
         img.save(self.image.path)
+
  

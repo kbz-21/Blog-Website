@@ -11,9 +11,9 @@
             </div>
 
             {% comment %} this is a link to see the detail of each posts. it directs in to url {% endcomment %}
-            <h2><a class="article-title" href="{% url 'blog-detail' posts.id %}">{{posts.title}}</a></h2> 
+            <h4><a class="article-title" href="{% url 'blog-detail' posts.id %}">{{posts.title}}</a></h4><hr><br>
 
-            <p class="article-content">{{ posts.content }}</p>
+            {% comment %} <p class="article-content">{{ posts.content }}</p> {% endcomment %}
         </div>  
         <br>
     </article>

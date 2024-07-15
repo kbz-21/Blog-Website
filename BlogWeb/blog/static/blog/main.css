@@ -14,6 +14,11 @@ body {
    margin:0;
  }
 
+ 
+.containerrr{
+  color:red;
+}
+
  .bg-steel {
    background: linear-gradient(270deg,  rgb(49, 0, 33) 0%, rgb(46, 0, 119) 100%);
  }
