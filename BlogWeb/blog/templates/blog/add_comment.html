@@ -1,0 +1,24 @@
+
+{% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+
+<div style=" box-shadow: 0 14px 18px 0 rgba(0, 0, 0, 0.486);" class="content-section">
+    <br><br>
+    <h1 style='color:SlateBlue; font-weight:bold; font-family:"Times New Roman"; 
+    font-size:26px;'> Comment...</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4"></legend>
+            {{ form|crispy }}
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-outline-info" type="submit">Add Comment</button>
+        </div>
+    </form>
+  
+</div>
+ {% endblock content %}

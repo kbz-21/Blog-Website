@@ -1,7 +1,7 @@
 from typing import Any
 from django.http import HttpResponse ,HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Post
+from .models import Post, Comment
 from django.urls import reverse
 
 
@@ -48,6 +48,10 @@ class PostDetailView(LoginRequiredMixin,DetailView):
 class PostCreateView(LoginRequiredMixin,CreateView):
     model = Post
     fields=['title','content']
+class AddCommentView(CreateView):
+    model = Comment
+    template_name='blog/add_comment.html'
+    fields='__all__'
 
     def form_valid(self,form):
         form.instance.author = self.request.user
