@@ -1,0 +1,21 @@
+
+{% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div style=" box-shadow: 0 14px 18px 0 rgba(0, 0, 0, 0.486); width: 550px; margin-left: 50px;"  class="content-section">
+    <form action="" method="post"><br>
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend style='color:SlateBlue; font-weight:bold; font-family:"Times New Roman"; font-size:24px;' class="border-bottom mb-4">New Post</legend>
+            {{ form|crispy }}
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-outline-info" type="submit">Post</button>
+        </div>
+    </form>
+    <div class="border-top pt-3">
+        <small class="text-mutted">Already have an account?</small><a href="{% url 'blog-home' %}"> Go Back</a>
+    </div>
+</div>
+ {% endblock content %}

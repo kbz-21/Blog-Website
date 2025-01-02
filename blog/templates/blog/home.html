@@ -1,0 +1,21 @@
+{% extends "blog/base.html" %}
+{% block content %}
+{% for posts in posts %}
+
+    <article style=" box-shadow: 0 14px 18px 0 rgba(0, 0, 0, 0.486);"  class="media content-section">  
+        <img class="rounded-circle article-img" src="{{ posts.author.profile.image.url}}" alt="">
+        <div class="media-body">
+            <div class="article-metadata">
+                <a class="mr-2" href="">{{posts.author}}</a>
+                <small class="text-muted">{{posts.date_posted}}</small>
+            </div>
+
+            {% comment %} this is a link to see the detail of each posts. it directs in to url {% endcomment %}
+            <h4><a class="article-title" href="{% url 'blog-detail' posts.id %}">{{posts.title}}</a></h4>
+
+            <p class="article-content">{{ posts.content|slice:"0:85" }}</p>
+        </div>  
+        <br>
+    </article>
+{% endfor %}
+{% endblock content %}

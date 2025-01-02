@@ -1,0 +1,25 @@
+
+{% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div style=" box-shadow: 0 14px 18px 0 rgba(0, 0, 0, 0.486);" class="content-section">
+    <form action="" method="post">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend style="color:red; opacity:0.6;font-family:cursive;" class="border-bottom mb-4">Delete Posts</legend>
+            <h4 style=" font-family:cursive; opacity:0.5;">Do you wanna to delete this <b>"{{ object.title }}"</b></h4>
+            {{ form|crispy }}
+            
+        </fieldset>
+        <div class="form-group">
+            
+            <button class="btn btn-outline-info" type="submit">Delete</button>
+        </div> 
+    </form>
+    <div class="border-top pt-3">
+        <small class="text-mutted"></small><a href="{% url 'blog-home' %}"> Go Back</a>
+
+    </div>
+</div>
+ {% endblock content %}
