@@ -2,12 +2,17 @@ from typing import Any
 from django.http import HttpResponse ,HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post, Comment
-from django.urls import reverse
+from django.urls import reverse,reverse_lazy
 
-
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView 
 from django.contrib.auth.mixins import LoginRequiredMixin,  UserPassesTestMixin
 
+
+from django.shortcuts import redirect
+
+
+def landing(request):
+    return render(request,'blog/landing_page.html')
 def about(request):
     return render(request, 'blog/about.html',{"title":"Blog-About"})
     
@@ -22,6 +27,7 @@ def LikeView(request,pk):
         liked=True
     
     return HttpResponseRedirect(reverse( 'blog-detail',args=[str(pk)]))
+
 
 class PostListView(LoginRequiredMixin,ListView):
     model = Post
@@ -45,9 +51,19 @@ class PostDetailView(LoginRequiredMixin,DetailView):
         context["total_likes"]= total_likes
         context["liked"] = liked
         return context
+
 class PostCreateView(LoginRequiredMixin,CreateView):
     model = Post
     fields=['title','content']
+
+
+    def form_valid(self,form):
+        form.instance.author=self.request.user
+        return super().form_valid(form)
+
+
+
+
 class AddCommentView(CreateView):
     model = Comment
     template_name='blog/add_comment.html'
@@ -83,4 +99,15 @@ class PostDeleteView(DeleteView):
         if self.request.user==post.author:
             return True
         return False
+
+
+# class AddCommentView(CreateView):
+#     model= Comment
+#     form_class = CommentForm
+#     template_name = 'add_comment.html()'
+#     success_url = reverse_lazy('home')
+
+#     def form_valid(self,form):
+#         form.instance.user = self.request()
+#         return super().from_valid(form)
 
